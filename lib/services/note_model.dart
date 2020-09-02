@@ -55,11 +55,11 @@ class NoteModel {
                 final dialog = AlertDialog(
                   title: Text(
                     "Delete note?",
-                    style: TextStyle(color: Colors.amber, fontSize: 25.0),
+                    style: TextStyle(color: AppColors.primaryColor, fontSize: 25.0, fontWeight: FontWeight.w400),
                   ),
                   content: Text(noteBox.get(key).title,
                       style:
-                          TextStyle(color: Colors.grey[700], fontSize: 18.0)),
+                          TextStyle(color: AppColors.primaryColor, fontSize: 18.0),),
                   actions: [
                     FlatButton(
                         onPressed: () {
@@ -67,7 +67,7 @@ class NoteModel {
                         },
                         child: Text("No",
                             style:
-                                TextStyle(color: Colors.blue, fontSize: 20.0))),
+                                TextStyle(color: Colors.black, fontSize: 20.0))),
                     FlatButton(
                         onPressed: () {
                           this.noteBox.delete(key);

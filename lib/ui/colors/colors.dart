@@ -21,7 +21,7 @@ class AppColors {
 
   //Grey
   static const Color grey = Color(0xFFE0E0E0);
-  static const Color greyShade1 = Color(0xFFE7E7E7);
+  static const Color textFieldColor = Color(0xFFF8F8F8);
 
   //Red
   static const Color circleAvatarColor = Color(0xFFF3F2F8);
