@@ -24,7 +24,7 @@ class AppColors {
   static const Color greyShade1 = Color(0xFFE7E7E7);
 
   //Red
-  static const Color red = Color(0xFFF1291A);
+  static const Color circleAvatarColor = Color(0xFFF3F2F8);
 
   //Green
   static const Color tileColor = Color(0xFFF6F5FF);
