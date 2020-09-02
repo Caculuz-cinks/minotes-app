@@ -1,4 +1,5 @@
 import 'package:MiNotes/ui/colors/colors.dart';
+import 'package:MiNotes/widgets/todo_type.dart';
 import 'package:flutter/material.dart';
 import 'package:MiNotes/services/note_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -32,63 +33,6 @@ class _HomeState extends State<Home> {
   }
 
   //create boxes for mitodo types
-  Widget todoType(type, IconData icon) {
-    Color backgroundColor;
-    if (type == "Work")
-      backgroundColor = AppColors.workColor.withOpacity(0.5);
-    else if (type == "Finance")
-      backgroundColor = AppColors.financeColor.withOpacity(0.5);
-    else if (type == "Travel")
-      backgroundColor = AppColors.travelColor.withOpacity(0.5);
-    else if (type == "Study")
-      backgroundColor = AppColors.studyColor.withOpacity(0.5);
-    else if (type == "Personal")
-      backgroundColor = AppColors.personalColor.withOpacity(0.5);
-    else
-      backgroundColor = AppColors.familyColor.withOpacity(0.5);
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, "/newnote", arguments: {
-              "color": backgroundColor.toString(),
-              "type": type,
-              "isNew": true
-            });
-          },
-          child: Container(
-            width: 145.0,
-            height: 160.0,
-            // padding: EdgeInsets.all(30.0),
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Center(
-                child: Wrap(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(icon, color: Colors.white),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      type,
-                      style: TextStyle(fontSize: 20.0),
-                    )
-                  ],
-                )
-              ],
-            )),
-          ),
-        )
-      ],
-    );
-  }
 
   List<PopupMenuEntry> choices = [
     PopupMenuItem(
@@ -172,11 +116,11 @@ class _HomeState extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  todoType("Work", Icons.work),
+                  todoType("Work", 'assets/work.svg', context),
                   SizedBox(
                     width: 20.0,
                   ),
-                  todoType("Finance", Icons.credit_card),
+                  todoType("Finance", "assets/finance.svg", context),
                 ],
               ),
               SizedBox(
@@ -185,11 +129,11 @@ class _HomeState extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  todoType("Travel", Icons.airplanemode_active),
+                  todoType("Travel", "assets/travel.svg", context),
                   SizedBox(
                     width: 20.0,
                   ),
-                  todoType("Study", Icons.library_books),
+                  todoType("Study", "assets/study.svg", context),
                 ],
               ),
               SizedBox(
@@ -198,11 +142,11 @@ class _HomeState extends State<Home> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  todoType("Personal", Icons.person),
+                  todoType("Personal", "assets/personal.svg", context),
                   SizedBox(
                     width: 20.0,
                   ),
-                  todoType("Family", Icons.people),
+                  todoType("Family", "assets/family.svg", context),
                 ],
               ),
               SizedBox(
@@ -215,7 +159,9 @@ class _HomeState extends State<Home> {
                     height: 55,
                     minWidth: 172,
                     child: FlatButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/allnotes");
+                        },
                         color: AppColors.primaryColor,
                         child: Text(
                           'View All',

@@ -27,7 +27,7 @@ class AppColors {
   static const Color red = Color(0xFFF1291A);
 
   //Green
-  static const Color green = Color(0xFF3ACC6C);
+  static const Color tileColor = Color(0xFFF6F5FF);
 
   //AlternateColors
   static const Color alternateShade1 = Color(0xFFF2DC5D);
